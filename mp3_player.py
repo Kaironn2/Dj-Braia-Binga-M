@@ -6,35 +6,35 @@ import os
 class DJBraiaBingaM:
     def __init__(self, root):
         self.root = root
-        self.root.title("DJ Braia Binga M")
+        self.root.title("DJ Braia Binga M")         # window title
 
         self.playlist = []
         self.current_index = 0
         self.playing = False
 
-        self.load_button = tk.Button(root, text="Load MP3", command=self.load_mp3)
+        self.load_button = tk.Button(root, text="Load MP3", command=self.load_mp3)              # load mp3 button
         self.load_button.pack(pady=10)
 
-        self.playlist_display = tk.Listbox(root, selectmode=tk.SINGLE, height=10, width=30)
+        self.playlist_display = tk.Listbox(root, selectmode=tk.SINGLE, height=10, width=30)     # playlist
         self.playlist_display.pack()
         self.playlist_display.bind("<<ListboxSelect>>", self.update_current_index)
         
-        self.current_song_label = tk.Label(root, text="Current Song:")
+        self.current_song_label = tk.Label(root, text="Current Song:")                          # current song text
         self.current_song_label.pack()
 
-        self.current_song_display = tk.Label(root, text="")
+        self.current_song_display = tk.Label(root, text="")                                     # current song
         self.current_song_display.pack()
         
-        self.volume_scale = tk.Scale(root, from_=0, to=1, resolution=0.1, orient=tk.HORIZONTAL, label="Volume", command=self.set_volume)
+        self.volume_scale = tk.Scale(root, from_=0, to=1, resolution=0.1, orient=tk.HORIZONTAL, label="Volume", command=self.set_volume)    # volume
         self.volume_scale.set(0.5)
         self.volume_scale.pack()
         
         self.play_stop_frame = tk.Frame(root)
-        self.prev_button = tk.Button(self.play_stop_frame, text="Previous", command=self.play_previous)
+        self.prev_button = tk.Button(self.play_stop_frame, text="Previous", command=self.play_previous)     # previous button
         self.prev_button.pack(side=tk.LEFT, padx=5)
-        self.play_button = tk.Button(self.play_stop_frame, text="Play", command=self.toggle_play_pause)
+        self.play_button = tk.Button(self.play_stop_frame, text="Play", command=self.toggle_play_pause)     # play/pause button    
         self.play_button.pack(side=tk.LEFT, padx=5)
-        self.next_button = tk.Button(self.play_stop_frame, text="Next", command=self.play_next)
+        self.next_button = tk.Button(self.play_stop_frame, text="Next", command=self.play_next)             # next button
         self.next_button.pack(side=tk.LEFT, padx=5)
         self.play_stop_frame.pack()
 
@@ -98,5 +98,6 @@ class DJBraiaBingaM:
 
 if __name__ == "__main__":
     root = tk.Tk()
+    root.geometry("400x500")            # window lenght
     dj_player = DJBraiaBingaM(root)
     root.mainloop()
