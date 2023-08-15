@@ -16,13 +16,7 @@ class MP3Player:
 
         self.stop_button = tk.Button(root, text="Stop", command=self.stop)
         self.stop_button.pack()
-
-        self.next_button = tk.Button(root, text="Next", command=self.play_next)
-        self.next_button.pack()
         
-        self.prev_button = tk.Button(root, text="Previous", command=self.play_previous)
-        self.prev_button.pack()
-
         self.load_button = tk.Button(root, text="Load MP3", command=self.load_mp3)
         self.load_button.pack()
 
@@ -46,16 +40,6 @@ class MP3Player:
 
     def set_volume(self, volume):
         pygame.mixer.music.set_volume(float(volume))
-
-    def play_previous(self):
-        if self.current_index > 0:
-            self.current_index -= 1
-            self.play()
-
-    def play_next(self):
-        if self.current_index < len(self.playlist) - 1:
-            self.current_index += 1
-            self.play()
 
 if __name__ == "__main__":
     root = tk.Tk()
